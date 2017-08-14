@@ -10,9 +10,8 @@
 <script type="text/javascript">
 function validate()
 {
-    if(   document.getElementById("text1").value == "workshop"
-       && document.getElementById("text2").value == "workshop" && 
-          document.getElementById("text3").value == "workshop@gmail.com" )
+    if(   document.getElementById("userid").value == "workshop"
+       && document.getElementById("passid").value == "workshop")
     {
         alert('Form submitted successfully');
         location.href="run.html";
