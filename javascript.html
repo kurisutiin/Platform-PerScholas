@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+   
+   <head>
+      <title>Form Validation</title>
+      
+      <script type="text/javascript">
+          // Form validation code will come here.
+      function validate()
+      {
+      
+         if( document.myForm.Userid.value == "" || 
+         	document.myForm.password.value.length == 5 ||
+         	document.myForm.password.value.length == 7 )
+         {
+            alert( "Please provide UserID!" );
+            document.myForm.Userid.focus() ;
+            return false;
+         }
+                
+         if( document.myForm.password.value == "" ||
+          document.myForm.password.value == 7  ||
+         document.myForm.password.value.length == 12 )
+         {
+            alert( "Please provide a Password in the format [7 to 12 Characters]." );
+            document.myForm.password.focus() ;
+            return false;
+         }
+         
+         if( document.myForm.Name.value == "" )
+         {
+            alert( "Please provide your name [Alphabet characters only]!" );
+            document.myForm.Name.focus() ;
+            return false;
+         }
+
+         if( document.myForm.EMail.value == "" )
+         {
+            alert( "Please provide your Email!" );
+            document.myForm.EMail.focus() ;
+            return false;
+         }
+         return( true );
+      }
+
+      function validateEmail()
+      {
+         var emailID = document.myForm.EMail.value;
+         atpos = emailID.indexOf("@");
+         dotpos = emailID.lastIndexOf(".");
+         
+         if (atpos < 1 || ( dotpos - atpos < 2 )) 
+         {
+            alert("Please enter correct email ID")
+            document.myForm.EMail.focus() ;
+            return false;
+         }
+         return( true );
+      }
+      </script>
+      
+   </head>
+   
+   <body>
+      <form action="/cgi-bin/test.cgi" name="myForm" onsubmit="return(validate());">
+         <table cellspacing="2" cellpadding="2" border="1">
+            
+            <tr>
+               <td align="right">UserID</td>
+               <td><input type="text" name="Userid" /></td>
+            </tr>
+                     
+            <tr>
+               <td align="right">Password</td>
+               <td><input type="password" name="password" /></td>
+            </tr>
+            
+            <tr>
+               <td align="right">Name</td>
+               <td><input type="text" name="username"/></td>
+            </tr>
+            <tr>
+               <td align="right">EMail</td>
+               <td><input type="text" name="EMail" /></td>
+            </tr>
+
+            <tr>
+               <td align="right"></td>
+               <td><input type="submit" value="Submit" /></td>
+            </tr>
+             
+         </table>
+      </form>
+      
+   </body>
+</html>
